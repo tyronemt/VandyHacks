@@ -1,0 +1,6 @@
+{
+    "manifest_version": 2,
+    "name" : "Finance",
+    "description" : "Quick Launch Finance",
+    "browser_action" : {}
+}
