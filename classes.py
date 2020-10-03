@@ -68,15 +68,6 @@ def create_person(name):
     p.append(x)
     return(x)
 
-def new_bud(p):
-    b = inpt("New Budget: ")
-    try:
-        b = int(b)
-        p.new_budget(b)
-        print("Success")
-    except:
-        print("Invalid")
-
 
 
 

@@ -2,9 +2,12 @@ from flask import Flask, url_for, render_template, request, redirect
 import classes as c
 
 
+
+
 app = Flask(__name__)
 
-i = 7 #have a next day button in the top tab as well as the current day
+global i
+i = 7 #have a [next day] button in the top tab as well as the current day
 
 lst = ["","Sunday", "Saturday", "Friday", "Thurday", "Wednesday", "Tuesday", "Monday"]
 
@@ -13,32 +16,58 @@ def base():
     global p
     if request.method == 'POST':
         username = request.form['username']
-        t = c.in_class(username)
+        t = c.in_class(username.lower())
         if t[0]:
             p = t[1]
         else:
-            p = c.create_person(username)
+            p = c.create_person(username.lower())
         return redirect(url_for('budget_menu'))
     return render_template('home.html')
 
 @app.route('/budget_menu', methods=['GET', 'POST'])
 def budget_menu():
-    return render_template('budget_menu.html')
+    return render_template('budget_menu.html') #make pretty
 
 
 @app.route('/add_finance',  methods=['GET', 'POST'])
 def add_finance():
-    return render_template('add_finance.html')
+    return render_template('add_finance.html') #make drop down menu with the text box next to it
 
-@app.route('/ask',  methods=['GET', 'POST'])
+@app.route('/ask',  methods=['GET', 'POST'])    
 def ask():
+    if request.method == 'POST':
+       price = request.form['price']
+       try:
+                m = float(price)
+                f = float(1/float(i))
+                if (m/float(p.budget)) < f:
+                    return redirect(url_for('success')) # Show text "go for it"
+                else:
+                    return redirect(url_for('error')) #Show text "nah"
+            except:
+                return redirect(url_for('error'))
     return render_template('ask.html')
 
 @app.route('/new_budget', methods=['GET', 'POST'])
 def new_budget():
+    if request.method == 'POST':
+        new_budget = request.form['new_budget']
+        try:
+            new_budget = int(new_budget)
+            p.new_budget(new_budget)
+            return redirect(url_for('success'))
+        except:
+            return redirect(url_for('error'))
+
     return render_template('new_budget.html')
 
+@app.route('/success')
+def success():
+    return render_template('success.html')
 
+@app.route('/error')
+def error():
+    return render_template('error.html')
 
 
 
