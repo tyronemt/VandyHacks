@@ -2,5 +2,13 @@
     "manifest_version": 2,
     "name" : "Finance",
     "description" : "Quick Launch Finance",
-    "browser_action" : {}
+    "browser_action" : {
+        "default_icon" : "icon.png",
+        "default_popup": "popup.html"
+    },
+
+    "permissions" : [
+        "tabs",
+        "storage"
+    ]
 }
