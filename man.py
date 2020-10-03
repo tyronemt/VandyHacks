@@ -1,10 +1,50 @@
+from flask import Flask, url_for, render_template, request, redirect
 import classes as c
 
+
+app = Flask(__name__)
+
+i = 7 #have a next day button in the top tab as well as the current day
+
+lst = ["","Sunday", "Saturday", "Friday", "Thurday", "Wednesday", "Tuesday", "Monday"]
+
+@app.route('/', methods=['GET', 'POST'])
+def base():
+    global p
+    if request.method == 'POST':
+        username = request.form['username']
+        t = c.in_class(username)
+        if t[0]:
+            p = t[1]
+        else:
+            p = c.create_person(username)
+        return redirect(url_for('budget_menu'))
+    return render_template('home.html')
+
+@app.route('/add_finance')
+def add_finance():
+    return render_template('add_finance.html')
+
+@app.route('/ask')
+def ask():
+    return render_template('ask.html')
+
+@app.route('/new_budget')
+def new_budget():
+    return render_template('new_budget.html')
+
+
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
-    c.create_person("Tyrone")
-    i = 7
-    lst = ["","Sunday", "Saturday", "Friday", "Thurday", "Wednesday", "Tuesday", "Monday"]
-    print(lst[i])
+    app.run(debug=True)
+
     while True:
         t = c.inpt("Enter Finance Category, 'ask', 'budget','next day',  or 'quit': ")
 
@@ -51,3 +91,5 @@ if __name__ == "__main__":
 
         else:
             pass
+
+        

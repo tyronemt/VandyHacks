@@ -4,6 +4,7 @@ p = []
 
 class Person:
     def __init__(self, name):
+        self.name = name
         self.dict = {"housing": 0,
             "transportation":0,
             "food":0,
@@ -55,10 +56,17 @@ def inpt(m = ''):
     n = input(m)
     return n
 
-def create_person():
-    name = inpt("Name: ")
+
+def in_class(username):
+    for i in p:
+        if username.lower() == i.name.lower():
+            return (True,i)
+    return (False,username)
+
+def create_person(name):
     x = Person(name)
     p.append(x)
+    return(x)
 
 def new_bud(p):
     b = inpt("New Budget: ")
