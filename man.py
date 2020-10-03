@@ -21,15 +21,20 @@ def base():
         return redirect(url_for('budget_menu'))
     return render_template('home.html')
 
-@app.route('/add_finance')
+@app.route('/budget_menu', methods=['GET', 'POST'])
+def budget_menu():
+    return render_template('budget_menu.html')
+
+
+@app.route('/add_finance',  methods=['GET', 'POST'])
 def add_finance():
     return render_template('add_finance.html')
 
-@app.route('/ask')
+@app.route('/ask',  methods=['GET', 'POST'])
 def ask():
     return render_template('ask.html')
 
-@app.route('/new_budget')
+@app.route('/new_budget', methods=['GET', 'POST'])
 def new_budget():
     return render_template('new_budget.html')
 
