@@ -1,28 +1,24 @@
-global p
-
-p = []
 
 class Person:
-    def __init__(self, name):
-        self.name = name
-        self.dict = {"housing": 0,
-            "transportation":0,
-            "food":0,
-            "utilities":0,
-            "clothing":0,
-            "healthcare":0,
-            "insurance":0,
-            "supplies":0,
-            "personal":0,
-            "debt":0,
-            "retirement":0,
-            "education":0,
-            "savings":0,
-            "donations":0,
-            "entertainment":0,
+    def __init__(self):
+        self.dict = {"housing": 0.0,
+            "transportation":0.0,
+            "food":0.0,
+            "utilities":0.0,
+            "clothing":0.0,
+            "healthcare":0.0,
+            "insurance":0.0,
+            "supplies":0.0,
+            "personal":0.0,
+            "debt":0.0,
+            "retirement":0.0,
+            "education":0.0,
+            "savings":0.0,
+            "donations":0.0,
+            "entertainment ":0.0
         }
-        self.budget = 0
-        self.sum = 0
+        self.budget = 0.0
+        self.sum = 0.0
     
     def new_budget(self,budget):
         self.budget = budget
@@ -33,26 +29,26 @@ class Person:
         self.sum += price
 
     def reset_dict(self):
-        self.dict = {"housing": 0,
-            "transportation":0,
-            "food":0,
-            "utilities":0,
-            "clothing":0,
-            "healthcare":0,
-            "insurance":0,
-            "supplies":0,
-            "personal":0,
-            "debt":0,
-            "retirement":0,
-            "education":0,
-            "savings":0,
-            "donations":0,
-            "entertainment ":0,
+        self.dict = {"housing": 0.0,
+            "transportation":0.0,
+            "food":0.0,
+            "utilities":0.0,
+            "clothing":0.0,
+            "healthcare":0.0,
+            "insurance":0.0,
+            "supplies":0.0,
+            "personal":0.0,
+            "debt":0.0,
+            "retirement":0.0,
+            "education":0.0,
+            "savings":0.0,
+            "donations":0.0,
+            "entertainment ":0.0,
         }
     def reset_budget(self):
-        self.budget = 0
+        self.budget = 0.0
     def reset_sum(self):
-        self.sum = 0
+        self.sum = 0.0
 
     
 
@@ -61,15 +57,8 @@ def inpt(m = ''):
     return n
 
 
-def in_class(username):
-    for i in p:
-        if username.lower() == i.name.lower():
-            return (True,i)
-    return (False,username)
-
-def create_person(name):
-    x = Person(name)
-    p.append(x)
+def create_person():
+    x = Person()
     return(x)
 
 
