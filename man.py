@@ -7,7 +7,7 @@ import classes as c
 app = Flask(__name__)
 
 global i
-i = 7 #have a [next day] button in the top tab as well as the current day
+i = 1 #have a [next day] button in the top tab as well as the current day
 
 lst = ["","Sunday", "Saturday", "Friday", "Thurday", "Wednesday", "Tuesday", "Monday"]
 
@@ -36,16 +36,16 @@ def add_finance():
 @app.route('/ask',  methods=['GET', 'POST'])    
 def ask():
     if request.method == 'POST':
-       price = request.form['price']
-       try:
-                m = float(price)
-                f = float(1/float(i))
-                if (m/float(p.budget)) < f:
-                    return redirect(url_for('success')) # Show text "go for it"
-                else:
-                    return redirect(url_for('error')) #Show text "nah"
-            except:
-                return redirect(url_for('error'))
+        price = request.form['price']
+        try:
+            m = float(price)
+            f = float(float(i)/7)
+            if (m/float(p.budget)) < f:
+                return redirect(url_for('success')) # Show text "go for it"
+            else:
+                return redirect(url_for('error')) #Show text "nah"
+        except:
+            return redirect(url_for('error'))
     return render_template('ask.html')
 
 @app.route('/new_budget', methods=['GET', 'POST'])
@@ -94,27 +94,27 @@ if __name__ == "__main__":
                 print("Invalid")
 
 
-        elif t.lower() == "budget":
-            c.new_bud(c.p[0])
+        # elif t.lower() == "budget":
+        #     c.new_bud(c.p[0])
 
 
-        elif t.lower() == "ask":
-            m = c.inpt("Price: ")               #need help with algorithm
-            try:
-                m = float(m)
-                p = float(1/float(i))
-                if (m/float(c.p[0].budget)) < p:
-                    print("Go For It")
-                else:
-                    print("Nah")
-            except:
-                print("Invalid")
+        # elif t.lower() == "ask":
+        #     m = c.inpt("Price: ")               #need help with algorithm
+        #     try:
+        #         m = float(m)
+        #         p = float(i/7)
+        #         if (m/float(c.p[0].budget)) < p:
+        #             print("Go For It")
+        #         else:
+        #             print("Nah")
+        #     except:
+        #         print("Invalid")
 
 
         elif t.lower() == "next day":
-            i-=1
-            if i == 0:
-                i = 7
+            i += 1
+            if i == 7:
+                i = 1
             print(lst[i])
     
 

@@ -22,6 +22,7 @@ class Person:
             "entertainment":0,
         }
         self.budget = 0
+        self.sum = 0
     
     def new_budget(self,budget):
         self.budget = budget
@@ -29,6 +30,7 @@ class Person:
     def add_finance(self,t,price):
         self.dict[t] += price
         self.budget -= price
+        self.sum += price
 
     def reset_dict(self):
         self.dict = {"housing": 0,
@@ -49,6 +51,8 @@ class Person:
         }
     def reset_budget(self):
         self.budget = 0
+    def reset_sum(self):
+        self.sum = 0
 
     
 
