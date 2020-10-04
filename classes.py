@@ -19,7 +19,7 @@ class Person:
             "education":0,
             "savings":0,
             "donations":0,
-            "entertainment ":0,
+            "entertainment":0,
         }
         self.budget = 0
     
