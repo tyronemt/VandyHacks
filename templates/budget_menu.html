@@ -1,15 +1,94 @@
-<center><body>
-  <div class="container fill-height">
-      <div class="row">
-       <div class="col-lg-1"></div>
-       <div class="col-lg-10">
-         <h1 style="text-align:center;"> What would you like to do?</h1>
-         <br>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <style>
+    .header {
+      padding: 20px;
+      text-align: center;
+      background: #f5f0e2;
+      color: rgb(34, 34, 34);
+      font-family: 'Nunito', serif;
+      font-size: 15px;
+    }
+    body {
+      background-color:#2C2C2C;
+    }
+    .base {
+      max-width: 1400px;
+      margin: auto;
+    }
+    .container1 {
+      padding-top: 5%;
+      width: 900px;
+      height: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .container2 {
+      width: 200px;
+      height: 75px;
+      margin: 0 auto;
+      text-align: center;
+      background-color:#3F3F3F;
+    }
+    .columnsBox {
+      padding-top: 5%;
+      width: 600px;
+      height: 200px;
+      margin: 0 auto;
+      text-align: center;
+      column-count: 2;
+    }
+    .form-control1 {
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="base">
+      <div class="container1">
+        <div class="header">
+          <h1>FINANCIAL MANAGER</h1>
+        </div>
+      <br>
+      <div class="columnsBox">
+        <div class="container2">
+          <form>
+            <input type="text" class="form-control" id="price" placeholder="Price">
+            
+            <button type="submit" class="btn btn-primary btn-sm">
+              Change Price
+            </button>
+          </form>
+        </div>
+        <div class="container2">
+          <form>
+            <input type="text" class="form-control" id="budget" placeholder="New Budget">
+            <button type="submit" class="btn btn-primary btn-sm">
+              Change Budget
+            </button>
+          </form>
+        </div>
+      </div>
+      <br>
+      <div class="addFinance">
+        <form>
+          <label style="color: white">Pick your category!</label>
+          <select class="form-control" id="finance">
+            <option>Housing</option>
+            <option>Transporation</option>
+            <option>Food</option>
+            <option>Utilities</option>
+            <option>Clothes</option>
+            <option>Personal</option>
+            <option>Education</option>
+          </select>
+          <br>
+          <input type="text" class="form-control1" id="financePrice" placeholder="Price">
+        </form>
       <a class="btn btn-primary btn-lg" href="add_finance" role="button">Add Finance</a>
-      <a class="btn btn-primary btn-lg" href="ask" role="button">Ask</a>
-      <a class="btn btn-primary btn-lg" href="new_budget" role="button">New Budget</a>
-       </div>
-      <div class="col-lg-1"></div>
+      </div>
+
+      
    </div>
- </div>
-</body></center>
+  </div>
+</body>
