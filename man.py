@@ -29,8 +29,10 @@ def add_finance():
 
 @app.route('/ask',  methods=['GET', 'POST'])    
 def ask():
+
+    print("hi")
     if request.method == 'POST':
-        ask_price = request.form['ask_price']
+        ask_price = request.form.get('ask_price')
         try:
             m = float(ask_price)
             f = float(float(i)/7)
@@ -44,7 +46,7 @@ def ask():
 @app.route('/new_budget', methods=['GET', 'POST'])
 def new_budget():
     if request.method == 'POST':
-        new_budget = request.form['new_budget']
+        new_budget = request.form.get('new_budget')
         try:
             new_budget = float(new_budget)
             p.new_budget(new_budget)
