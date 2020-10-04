@@ -18,6 +18,7 @@ class Graph:
         p = plt.gcf()
         p.gca().add_artist(circle)
         plt.show()
+
 def create_graph(person):
     return Graph(person)
 
